@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Piezas del perfil</title>
+<style>
+@font-face{font-family:"Pixelify Sans";src:url(fonts/pixelifysans-400.woff2) format("woff2");font-weight:400 700}
+@font-face{font-family:"Chakra Petch";src:url(fonts/chakrapetch-400.woff2) format("woff2");font-weight:400}
+@font-face{font-family:"Chakra Petch";src:url(fonts/chakrapetch-500.woff2) format("woff2");font-weight:500}
+@font-face{font-family:"Chakra Petch";src:url(fonts/chakrapetch-600.woff2) format("woff2");font-weight:600}
+@font-face{font-family:"Chakra Petch";src:url(fonts/chakrapetch-700.woff2) format("woff2");font-weight:700}
+:root{
+  --acc:#8847ff;--acc-l:#b48cff;--acc-d:#4a2496;
+  --bg:#0a0612;--panel:#150c26;--panel2:#1c1232;--panel3:#261943;
+  --ink:#f5f1ff;--muted:#9d92bd;--gold:#e4ae39;
+  --line:rgba(206,190,255,.1);--line2:rgba(206,190,255,.19);
+  --px:"Pixelify Sans",ui-monospace,monospace;--ui:"Chakra Petch",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--ui);-webkit-font-smoothing:antialiased;overflow:hidden}
+.stage{position:relative;overflow:hidden;background:var(--bg)}
+/* fondo de puntos, como la web */
+.dots{position:absolute;inset:0;background-image:radial-gradient(rgba(206,190,255,.13) 1px,transparent 1.2px);background-size:22px 22px}
+/* esquinas de píxel en escalón */
+.pxb{clip-path:polygon(0 8px,4px 8px,4px 4px,8px 4px,8px 0,calc(100% - 8px) 0,calc(100% - 8px) 4px,calc(100% - 4px) 4px,calc(100% - 4px) 8px,100% 8px,100% calc(100% - 8px),calc(100% - 4px) calc(100% - 8px),calc(100% - 4px) calc(100% - 4px),calc(100% - 8px) calc(100% - 4px),calc(100% - 8px) 100%,8px 100%,8px calc(100% - 4px),4px calc(100% - 4px),4px calc(100% - 8px),0 calc(100% - 8px))}
+.kick{font:600 15px/1 var(--ui);letter-spacing:.24em;text-transform:uppercase;color:var(--acc-l);display:flex;align-items:center;gap:12px}
+.kick i{width:10px;height:10px;background:var(--acc);display:block}
+.pxt{font-family:var(--px);font-weight:400;letter-spacing:-.01em;text-shadow:4px 4px 0 var(--acc-d)}
+.btn{display:inline-flex;align-items:center;gap:12px;background:var(--acc);color:#fff;font:700 22px/1 var(--ui);padding:16px 24px;box-shadow:inset 0 -5px 0 var(--acc-d)}
+.btn svg{width:18px;height:18px}
+img.pix{image-rendering:pixelated}
+
+/* ---------- banner ---------- */
+#banner{width:1280px;height:460px}
+#banner .glow{position:absolute;right:120px;top:-60px;width:560px;height:560px;background:radial-gradient(closest-side,rgba(136,71,255,.32),transparent);}
+#banner .txt{position:absolute;left:64px;top:56px;width:720px}
+#banner h1{font-size:78px;line-height:.98;margin:22px 0 22px}
+#banner h1 em{font-style:normal;color:var(--acc-l)}
+#banner p{font:400 21px/1.45 var(--ui);color:#cfc6ea;max-width:620px}
+#banner .row{display:flex;gap:18px;align-items:center;margin-top:26px}
+#banner .stats{display:flex;gap:10px}
+#banner .stat{background:var(--panel2);border:1px solid var(--line2);padding:10px 14px;font:500 15px/1 var(--ui);color:var(--muted)}
+#banner .stat b{color:var(--ink);font-weight:700}
+/* consola */
+.console{position:absolute;right:92px;top:34px;width:300px;height:420px;background:linear-gradient(160deg,#9d66ff,#7a3cf0 55%,#6430d0);border-radius:22px 22px 70px 22px;box-shadow:inset 0 -8px 0 rgba(0,0,0,.18),inset 0 3px 0 rgba(255,255,255,.25),0 30px 60px rgba(0,0,0,.5);transform:rotate(6deg)}
+.console .brand{position:absolute;left:24px;top:16px;font:700 11px/1 var(--ui);letter-spacing:.28em;color:rgba(255,255,255,.75)}
+.console .bezel{position:absolute;left:22px;right:22px;top:38px;height:206px;background:#231a3a;border-radius:10px 10px 30px 10px;padding:16px 18px}
+.console .scr{width:100%;height:100%;background:#120b22;border:2px solid #0b0716;position:relative;overflow:hidden}
+.console .scr .t{position:absolute;left:0;right:0;top:12px;text-align:center;font:400 17px/1 var(--px);color:#e8dcff;text-shadow:2px 2px 0 #4a2496}
+.console .scr .s{position:absolute;left:0;right:0;top:34px;text-align:center;font:400 8px/1 var(--px);letter-spacing:.2em;color:var(--acc-l)}
+.console .scr img{position:absolute;left:8px;bottom:0;width:112px}
+.console .menu{position:absolute;right:12px;top:62px;font:400 11px/1.7 var(--px);color:#cbb8ff}
+.console .menu .on{color:#fff}
+.console .menu .on:before{content:"▸ "}
+.console .dpad{position:absolute;left:40px;top:288px;width:78px;height:78px}
+.console .dpad:before,.console .dpad:after{content:"";position:absolute;background:#2a1d47;border-radius:4px}
+.console .dpad:before{left:26px;top:0;width:26px;height:78px}
+.console .dpad:after{left:0;top:26px;width:78px;height:26px}
+.console .ab{position:absolute;width:40px;height:40px;border-radius:50%;background:#2a1d47;box-shadow:inset 0 -3px 0 rgba(0,0,0,.35);font:700 13px/40px var(--ui);text-align:center;color:#9d8cc8}
+.console .a{right:30px;top:282px}.console .b{right:80px;top:312px}
+.console .grill{position:absolute;right:30px;bottom:30px;display:flex;gap:6px;transform:rotate(-30deg)}
+.console .grill i{width:5px;height:36px;border-radius:3px;background:rgba(0,0,0,.2)}
+#banner .rico{position:absolute;right:388px;bottom:26px;width:94px}
+
+/* ---------- títulos de sección ---------- */
+.sec{width:1280px;height:200px}
+.sec .in{position:absolute;left:64px;right:64px;top:34px}
+.sec h2{font-size:44px;line-height:1;margin:16px 0 14px}
+.sec p{font:400 19px/1.4 var(--ui);color:var(--muted)}
+.sec .rule{position:absolute;left:64px;right:64px;bottom:0;height:4px;background:repeating-linear-gradient(90deg,var(--acc) 0 12px,transparent 12px 20px);opacity:.7}
+
+/* ---------- tarjetas de proyecto ---------- */
+.card{width:620px;height:500px;padding:10px;background:var(--bg)}
+.card .box{position:relative;width:100%;height:100%;background:var(--panel);border:1px solid var(--line2)}
+.card .shot{position:absolute;left:12px;right:12px;top:12px;height:280px;overflow:hidden;background:#000}
+.card .shot img{width:100%;height:100%;object-fit:cover;object-position:top}
+.card .shot.phone{display:flex;justify-content:center;gap:14px;background:linear-gradient(160deg,#1c1232,#0a0612);padding-top:22px}
+.card .shot.phone img{width:150px;height:auto;object-fit:initial;border-radius:16px;border:3px solid #2e2150;box-shadow:0 14px 30px rgba(0,0,0,.5)}
+.card .shot .badge{position:absolute;right:12px;top:12px;font:700 12px/1 var(--ui);letter-spacing:.16em;text-transform:uppercase;padding:8px 10px;background:var(--gold);color:#1d1204}
+.card .shot .badge.live{background:#3ddc84;color:#062512}
+.card .meta{position:absolute;left:26px;right:26px;top:308px}
+.card .cat{font:600 13px/1 var(--ui);letter-spacing:.22em;text-transform:uppercase;color:var(--acc-l)}
+.card h3{font:400 34px/1 var(--px);margin:10px 0 10px;text-shadow:3px 3px 0 var(--acc-d)}
+.card .d{font:400 16.5px/1.38 var(--ui);color:#cfc6ea;height:46px;overflow:hidden}
+.card .foot{position:absolute;left:26px;right:26px;bottom:22px;display:flex;justify-content:space-between;align-items:center;font:500 14px/1 var(--ui);color:var(--muted)}
+.card .foot .u{color:var(--ink);display:flex;align-items:center;gap:8px}
+.card .foot .u svg{width:13px;height:13px;color:var(--acc-l)}
+.card .chips{display:flex;gap:6px}
+.card .chips span{border:1px solid var(--line2);padding:5px 8px;font-size:12px;color:#cbb8ff}
+
+/* ---------- skills ---------- */
+.skill{width:620px;height:210px;padding:10px;background:var(--bg)}
+.skill .box{position:relative;width:100%;height:100%;background:var(--panel);border:1px solid var(--line2);padding:24px 26px 0 34px}
+.skill .bar{position:absolute;left:0;top:0;bottom:0;width:8px;background:var(--r)}
+.skill .top{display:flex;justify-content:space-between;align-items:center}
+.skill .tag{font:600 13px/1 var(--ui);letter-spacing:.2em;text-transform:uppercase;color:var(--r)}
+.skill .cmd{font:500 13px/1 ui-monospace,Menlo,monospace;color:var(--muted);background:var(--panel3);padding:6px 9px}
+.skill h3{font:400 30px/1 var(--px);margin:14px 0 10px;text-shadow:3px 3px 0 var(--acc-d)}
+.skill .d{font:400 16px/1.4 var(--ui);color:#cfc6ea}
+
+/* ---------- cierre ---------- */
+#cta{width:1280px;height:300px}
+#cta .box{position:absolute;left:64px;right:64px;top:30px;bottom:30px;background:linear-gradient(120deg,#2a1559,#150c26 60%);border:1px solid var(--line2);padding:44px 52px}
+#cta h2{font-size:52px;line-height:1;margin:16px 0 14px}
+#cta p{font:400 20px/1.4 var(--ui);color:#cfc6ea;max-width:620px}
+#cta .btn{position:absolute;right:56px;top:64px}
+#cta .alt{position:absolute;right:56px;top:148px;font:500 17px/1.6 var(--ui);color:var(--muted);text-align:right}
+#cta .alt b{color:var(--ink);font-weight:600}
+#cta .rico{position:absolute;right:300px;bottom:0;width:70px}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+const ARROW='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12L12 4M5 4h7v7"/></svg>';
+const P={
+  amante:{img:'prev-amante-d.webp',cat:'Hamburguesería · Trujillo',n:'Amante de las Burgers',d:'Una carta de amor que llega en un sobre kraft, con la carta real y pedidos por WhatsApp.',u:'amantedelasburgers.hugorocha.pe'},
+  bulls:{img:'prev-bulls-d.webp',cat:'Gimnasio · Trujillo',n:'Bulls Training Club',d:'“Arma tu ficha”: el gym con los videos reales de su gente entrenando.',u:'bullstrainingclub.hugorocha.pe'},
+  thunder:{img:'prev-thunder-d.webp',cat:'Relojes · Tienda',n:'THUNDER®',d:'Tienda de relojes Invicta originales, con su stock real y la preventa.',u:'thundershop.hugorocha.pe'},
+  camiseros:{img:'prev-camiseros-d.webp',cat:'Camisas · Tienda',n:'Camiseros Perú',d:'Camisas old money: armas tu trío en tres colores y lo pides por WhatsApp.',u:'camiserosperu.hugorocha.pe'},
+  wave:{img:'prev-wave-d.webp',cat:'Ropa deportiva · Trujillo',n:'WAVE',d:'Ropa deportiva para chicas, con su colección Motion y cada prenda en sus colores.',u:'wavestore.hugorocha.pe'},
+  hamburgruesas:{img:'prev-hamburgruesas-d.webp',cat:'Hamburguesería · Trujillo',n:'Hamburgruesas',d:'Eliges Gruesa o Gruesota y la ves engordar piso por piso.',u:'hamburgruesas.hugorocha.pe'},
+  placa:{img:'prev-placa-d.webp',cat:'Software propio',n:'Checa tu Placa',d:'Escribes la placa y te llega la historia del vehículo en un reporte con PDF, sin crear cuenta.',u:'checatuplaca.com',chips:['11 fuentes','Pago con Yape']},
+  caserita:{img:'prev-caserita-d.webp',cat:'Software · Co-creador',n:'Caserita',d:'Un ayudante dentro de WhatsApp: le cuentas lo que vendiste o gastaste y lo ordena.',u:'caserita.lat',chips:['WhatsApp','Bodegas']},
+  gym:{phones:['gym-inicio.webp','gym-ficha.webp'],cat:'Panel para gimnasios',n:'Bulls Panel',d:'Clientes, planes, pagos, avisos de quién vence e ingreso con DNI. Adiós al Excel.',u:'hugorocha.pe',badge:'Nuevo',chips:['NestJS','Next.js','Postgres']},
+};
+const SKILLS={
+  'web-con-concepto':{r:'#8847ff',tag:'Webs para negocios',n:'Web para tu negocio',cmd:'hazme una web para @tunegocio',d:'Le das el Instagram de un negocio y arma su web sin plantilla: tres ideas, su logo animado, su carta real y pedidos por WhatsApp.'},
+  'carrusel-con-gancho':{r:'#4b69ff',tag:'Instagram',n:'Carrusel viral',cmd:'hazme un carrusel viral',d:'Estudia tu perfil, escribe el guion y diseña las láminas con tu marca, pensadas para que las guarden y compartan.'},
+  'carrusel-en-movimiento':{r:'#4b69ff',tag:'Instagram',n:'Carrusel animado',cmd:'hazme un carrusel animado',d:'Carruseles 4:5 que se mueven en bucle, en cinco estilos: sticker Y2K, interfaz, cinética, sketch o collage.'},
+  'video-de-producto':{r:'#5e98d9',tag:'Video',n:'Video de lanzamiento',cmd:'hazme un video de tuapp.com',d:'Le pasas el link de tu app y hace su video de lanzamiento con tu interfaz real, voz, música y sonido.'},
+  'web-en-linea':{r:'#3ddc84',tag:'Gratis · Deploy',n:'Publica tu web',cmd:'publica esta web',d:'Sube tu web a tu propio servidor con Dokploy y la deja en tu dominio con HTTPS.'},
+};
+const SEC={
+  webs:['01 / Webs para negocios','Cada negocio es un cartucho distinto.','Hechas desde su Instagram real: sus fotos, su carta y pedidos por WhatsApp.'],
+  software:['02 / Software','Sistemas para negocios de verdad.','Paneles, reportes y ayudantes que reemplazan el Excel y el cuaderno.'],
+  skills:['03 / Skills para Claude Code','Lo que uso, empaquetado para ti.','Las mismas skills con las que hice estas webs. Una es gratis.'],
+  stack:['04 / Stack','Con qué construyo.','De la web al servidor: lo hago y lo publico yo.'],
+};
+const h=location.hash.slice(1), root=document.getElementById('root');
+const [kind,id]=h.split(':');
+if(kind==='banner'){
+  root.innerHTML=`<div id="banner" class="stage"><div class="dots"></div><div class="glow"></div>
+  <div class="txt">
+    <div class="kick"><i></i>Hugo Rocha · Trujillo, Perú</div>
+    <h1 class="pxt">Hago webs,<br>software y <em>skills.</em></h1>
+    <p>Webs para negocios de Perú con pedidos por WhatsApp, paneles que reemplazan el Excel y skills para Claude Code.</p>
+    <div class="row"><span class="btn pxb">hugorocha.pe ${ARROW}</span>
+      <div class="stats"><span class="stat pxb"><b>6</b> webs en línea</span><span class="stat pxb"><b>3</b> sistemas</span><span class="stat pxb"><b>5</b> skills</span></div></div>
+  </div>
+  <div class="console"><div class="brand">HUGO ROCHA</div>
+    <div class="bezel"><div class="scr"><div class="t">HUGO ROCHA</div><div class="s">EDICIÓN TRUJILLO</div>
+      <div class="menu"><div class="on">Pedir web</div><div>Mis webs</div><div>Software</div><div>La tienda</div></div>
+      <img class="pix" src="img/hugo-px.png" alt=""></div></div>
+    <div class="dpad"></div><div class="ab a">A</div><div class="ab b">B</div><div class="grill"><i></i><i></i><i></i><i></i></div></div>
+  <img class="pix rico" src="img/rico-px.png" alt="">
+  </div>`;
+}else if(kind==='sec'){
+  const s=SEC[id];
+  root.innerHTML=`<div class="sec stage"><div class="in"><div class="kick"><i></i>${s[0]}</div><h2 class="pxt">${s[1]}</h2><p>${s[2]}</p></div><div class="rule"></div></div>`;
+}else if(kind==='card'){
+  const p=P[id];
+  const shot=p.phones?`<div class="shot phone">${p.phones.map(f=>`<img src="img/${f}" alt="">`).join('')}`:`<div class="shot"><img src="img/${p.img}" alt="">`;
+  root.innerHTML=`<div class="card"><div class="box pxb">${shot}${p.badge?`<span class="badge pxb">${p.badge}</span>`:''}</div>
+    <div class="meta"><div class="cat">${p.cat}</div><h3>${p.n}</h3><div class="d">${p.d}</div></div>
+    <div class="foot"><span class="u">${p.u} ${ARROW}</span><span class="chips">${(p.chips||[]).map(c=>`<span>${c}</span>`).join('')}</span></div></div></div>`;
+}else if(kind==='skill'){
+  const s=SKILLS[id];
+  root.innerHTML=`<div class="skill" style="--r:${s.r}"><div class="box pxb"><div class="bar"></div>
+    <div class="top"><span class="tag">${s.tag}</span><span class="cmd">› ${s.cmd}</span></div>
+    <h3>${s.n}</h3><div class="d">${s.d}</div></div></div>`;
+}else if(kind==='cta'){
+  root.innerHTML=`<div id="cta" class="stage"><div class="dots"></div><div class="box pxb">
+    <div class="kick"><i></i>¿Continuar?</div>
+    <h2 class="pxt">¿Tienes un negocio?</h2>
+    <p>Te hago la web con tu marca, tu carta y pedidos por WhatsApp, y la dejo en línea en tu dominio.</p>
+    <span class="btn pxb">Pedir mi web ${ARROW}</span>
+    <div class="alt"><b>hugorocha.pe</b><br>Instagram @hugo_hppr</div>
+    <img class="pix rico" src="img/rico-px.png" alt=""></div></div>`;
+}
+</script>
+</body>
+</html>
