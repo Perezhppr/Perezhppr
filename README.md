@@ -14,7 +14,7 @@
 
 Desarrollador en **Trujillo, Perú**. Hago webs para negocios que viven en Instagram y WhatsApp: hamburgueserías, gimnasios, tiendas de ropa y de relojes. Cada web sale de su marca real (sus fotos, su carta, sus precios) y recibe los pedidos por WhatsApp.
 
-También hago **software para negocios de verdad**. Checa tu Placa nació porque compro y vendo autos y revisaba SUNARP, SAT, papeletas y SOAT en páginas distintas: hice una sola. El panel de Bulls nació porque el gym llevaba a sus clientes en un Excel.
+También hago **software para negocios de verdad**. Checa tu Placa nació porque compro y vendo autos y revisaba SUNARP, SAT, papeletas y SOAT en páginas distintas: hice una sola. [TuGym](https://tugym.online) nació en Bulls, un gym que llevaba a sus clientes en un Excel: hoy es un panel para cualquier gym, con la app de sus alumnos.
 
 - 🛠️ Hago la web, el backend y el servidor: lo diseño, lo programo y lo publico yo.
 - 🤖 Trabajo con **Claude Code** y vendo las skills que uso en [hugorocha.pe](https://hugorocha.pe).
@@ -36,7 +36,7 @@ También hago **software para negocios de verdad**. Checa tu Placa nació porque
 <img src="assets/sec-software.png" width="100%" alt="02 / Software — Sistemas para negocios de verdad.">
 
 <p align="center">
-  <a href="https://hugorocha.pe"><img src="assets/card-gym.webp" width="49%" alt="Bulls Panel — panel para gimnasios"></a>
+  <a href="https://tugym.online"><img src="assets/card-gym.webp" width="49%" alt="TuGym — panel para gimnasios y app para sus alumnos"></a>
   <a href="https://checatuplaca.com"><img src="assets/card-placa.webp" width="49%" alt="Checa tu Placa — historia del vehículo por placa"></a>
   <a href="https://caserita.lat"><img src="assets/card-caserita.webp" width="49%" alt="Caserita — ayudante de negocio en WhatsApp"></a>
 </p>
